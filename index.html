@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sıla | Web Geliştirici Adayı</title>
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#about">Hakkımda</a></li>
+      <li><a href="#certificates">Sertifikalar</a></li>
+      <li><a href="#projects">Projeler</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Merhaba, ben Sıla 👩‍💻</h1>
+    <p>Web geliştirmeye gönül vermiş bir yazılım tutkunu</p>
+  </header>
+<section id="about" class="section animate">
+  <h2>Ben Kimim?</h2>
+  <p>
+    Merhaba! Ben Sıla Nur Tezcan, Mehmet Akif Ersoy Üniversitesi Zeliha Tolunay Uygulamalı Bilimler Yüksekokulu Yönetim Bilişim Sistemleri 4. sınıf öğrencisiyim. Web teknolojilerine duyduğum ilgi doğrultusunda HTML, CSS, JavaScript, Python, Bootstrap, Django ve SQLite gibi diller ve araçlar üzerine kendimi geliştirdim.
+  </p>
+  <p>
+    Şu anda özellikle web geliştirme alanında yoğunlaşmış durumdayım. Bu alandaki projelerim GitHub profilimde yer almakta. En dikkat çeken projelerimden biri, dinamik yapıya sahip kapsamlı bir eğitim web sitesidir. Bu projede kullanıcı dostu bir ana sayfa, öğrenci paneli ve yönetici paneli bulunmaktadır. Yönetici paneli aracılığıyla öğrencilere erişim izni verilebilmekte ve video ile kaynak materyaller yüklenebilmektedir.
+  </p>
+  <p>
+    Hedefim, estetik ve işlevselliği harmanlayan, kullanıcı odaklı çözümler üretmek ve teknolojiyi yalnızca bir araç değil, aynı zamanda güçlü bir anlatım dili olarak kullanmaktır.
+  </p>
+  <div class="social-buttons">
+    <a href="https://github.com/Silanur-Tezcan" class="btn github" target="_blank">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="https://www.linkedin.com/in/s%C4%B1la-nur-tezcan-86b804326/" class="btn linkedin" target="_blank">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+  </div>
+</section>
+
+  <section id="certificates" class="section animate">
+    <h2>Sertifikalar</h2>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="img/html_btk.png" alt="HTML & CSS Sertifikası" class="zoomable"/>
+          🌐 BTK HTML & CSS Sertifikası
+        </div>
+        <div class="swiper-slide">
+          <img src="img/py_t.png" alt="Python Temelleri" class="zoomable"/>
+          🐍 TURKCELL Python Temelleri
+        </div>
+        <div class="swiper-slide">
+          <img src="img/css_btk.png" alt="Django Web Geliştirme"class="zoomable" />
+          🌐 BTK Css Temelleri
+        </div>
+        <div class="swiper-slide">
+          <img src="img/css_t.png" alt="Django Web Geliştirme" class="zoomable" />
+          🌐 TURKCELL Css Temelleri
+        </div>
+         <div class="swiper-slide">
+          <img src="img/html_t.png" alt="Django Web Geliştirme" class="zoomable" />
+          🌐 TURKCELL HTML Temelleri
+        </div>
+         <div class="swiper-slide">
+          <img src="img/js_btk.png" alt="Django Web Geliştirme" class="zoomable"/>
+          🌱 BTK JavaScript Temelleri
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+
+  <section id="projects" class="section animate">
+    <h2>Projeler</h2>
+
+    <div class="card slide-in-left">
+      <span>🎓 B12 Akademi Eğitim Sitesi (Dinamik)</span>
+      <a href="b12.html" class="button" style="margin-left: 50px; ">Detay</a>
+    </div>
+
+    <div class="card slide-in-right">
+     <span>📱 Django Tabanlı QR Menü Sistemi (Admin Panelli)</span>
+      <a href="qr_menu.html" class="button" style="margin-left: 143px; ">Detay</a>
+    </div>
+
+    <div class="card slide-in-left">
+      <span>📘 Statik Programlama Dilleri Üzerine Bilgilendirici Blog </span>
+      <a href="blog.html" class="button" style="margin-left: 112px; ">Detay</a>
+    </div>
+    <div class="card slide-in-right">
+    <span>📅 Django Tabanlı Rezervasyon Sistemi (Tarihe Göre)</span>
+      <a href="rezerve.html" class="button" style="margin-left: 143px; ">Detay</a>
+    </div>
+  </section>
+<div id="imageModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="modalImage">
+</div>
+ <footer>
+  <p>© 2025 Sıla | Tüm hakları saklıdır.</p>
+  <p>
+    Diğer projelerime göz atmak için 
+    <a href="https://github.com/Silanur-Tezcan" target="_blank" style="color: #4f46e5; font-weight: 500; text-decoration: underline;">
+      GitHub profilimi ziyaret edebilirsiniz
+    </a>.
+  </p>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

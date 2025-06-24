@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sıla | B12 Akademi Projesi</title>
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #e0e7ff, #f9fafb);
+      color: #222;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .project-container {
+      max-width: 900px;
+      width: 100%;
+      background: #fff;
+      border-radius: 16px;
+      padding: 30px 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 2.4rem;
+      color: #4f46e5;
+      text-align: center;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 4px rgba(79,70,229,0.3);
+    }
+
+    .description {
+      font-size: 1.15rem;
+      color: #555;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .media-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .media-gallery img,
+    .media-gallery video {
+      width: 100%;
+      border-radius: 14px;
+      box-shadow: 0 8px 24px rgba(79,70,229,0.15);
+      object-fit: cover;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      cursor: pointer;
+      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
+    }
+
+    .media-gallery img:hover,
+    .media-gallery video:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 12px 40px rgba(79,70,229,0.35);
+      filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15));
+    }
+
+    .back-button {
+      margin-top: 40px;
+      padding: 12px 28px;
+      background: #4f46e5;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      align-self: center;
+      box-shadow: 0 6px 15px rgba(79,70,229,0.4);
+      transition: background 0.3s ease, transform 0.3s ease;
+      user-select: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .back-button:hover {
+      background: #4338ca;
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(67,56,202,0.6);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .project-container {
+        padding: 25px 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .description {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .media-gallery {
+        grid-template-columns: 1fr;
+      }
+      .back-button {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="project-container">
+    <h1>🎓 B12 Akademi Eğitim Sitesi</h1>
+   <p class="description">
+  Bu projede Django, SQLite, HTML, CSS ve JavaScript kullanarak geliştirilen kullanıcı dostu, dinamik bir eğitim platformu tasarladım. Sistem; genel tanıtım ve yönlendirme sağlayan bir ana sayfa, öğrencilerin erişimine açık kaynaklar ve canlı ders bölümlerini içeren bir öğrenci paneli ve içerik yönetiminin yapıldığı bir admin panelinden oluşmaktadır. Yönetici paneli üzerinden kullanıcı erişim izinleri kontrol edilebilmekte, kamp içerikleri güncellenebilmekte ve yeni videolar yüklenebilmektedir. Böylece hem kullanıcılar için verimli bir öğrenme ortamı sağlanmakta, hem de içerik yöneticilerine esnek ve etkili bir kontrol paneli sunulmaktadır.
+</p>
+
+    <div class="media-gallery">
+      <img src="proje/Ekran görüntüsü 2025-04-20 171721.png" alt="B12 Akademi Görsel 1" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 171747.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 172036.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 171811.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 171835.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 171852.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 171908.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 171922.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      <img src="proje/Ekran görüntüsü 2025-04-20 171943.png" alt="B12 Akademi Görsel 2" loading="lazy" />
+      
+      <video controls preload="metadata" playsinline>
+        <source src="proje/b12_akademi.mp4" type="video/mp4" />
+        Tarayıcınız video etiketini desteklemiyor.
+      </video>
+    </div>
+  </div>
+
+ <a href="index.html" class="back-button" aria-label="Geri Dön">
+  ← Geri Dön
+</a>
+  <!-- Bu kısmı body'nin sonuna, </body> kapanışından hemen önce ekle -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const images = document.querySelectorAll('.media-gallery img');
+
+    // Modal elementi oluştur
+    const modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = 0;
+    modal.style.left = 0;
+    modal.style.width = '100vw';
+    modal.style.height = '100vh';
+    modal.style.background = 'rgba(0,0,0,0.8)';
+    modal.style.display = 'flex';
+    modal.style.justifyContent = 'center';
+    modal.style.alignItems = 'center';
+    modal.style.cursor = 'zoom-out';
+    modal.style.opacity = 0;
+    modal.style.pointerEvents = 'none';
+    modal.style.transition = 'opacity 0.3s ease';
+    modal.style.zIndex = 9999;
+
+    const modalImg = document.createElement('img');
+    modalImg.style.maxWidth = '90%';
+    modalImg.style.maxHeight = '90%';
+    modalImg.style.borderRadius = '12px';
+    modalImg.style.boxShadow = '0 10px 40px rgba(255,255,255,0.3)';
+    modal.appendChild(modalImg);
+
+    document.body.appendChild(modal);
+
+    images.forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.style.opacity = 1;
+        modal.style.pointerEvents = 'auto';
+      });
+    });
+
+    modal.addEventListener('click', () => {
+      modal.style.opacity = 0;
+      modal.style.pointerEvents = 'none';
+    });
+  });
+</script>
+
+</body>
+</html>

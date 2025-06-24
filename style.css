@@ -1,0 +1,343 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+  color: #2d0353;
+}
+
+nav {
+  position: fixed;
+  width: 100%;
+  background: white;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #6a0572;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ff6f61;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  animation: zoomIn 0.3s ease;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.5);}
+  to {transform: scale(1);}
+}
+.social-buttons {
+  margin-top: 20px;
+}
+.social-buttons .btn {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.btn.github {
+  background-color: #24292e;
+}
+.btn.github:hover {
+  background-color: #000;
+}
+.btn.linkedin {
+  background-color: #0077b5;
+}
+.btn.linkedin:hover {
+  background-color: #005582;
+}
+.hero {
+  padding: 120px 20px 60px;
+  text-align: center;
+  background: linear-gradient(to right, #e0f2f1, #fce4ec);
+}
+
+.swiper {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.swiper-slide:hover {
+  transform: scale(1.05);
+}
+
+.swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  max-height: 200px;
+}
+
+.section {
+  max-width: 800px;
+  margin: auto;
+  padding: 100px 20px;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  color: #6a0572;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff6f61;
+  margin-top: 10px;
+}
+
+#projects {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 50px 20px;
+}
+
+.card {
+  position: relative;
+  padding: 25px 30px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  overflow: hidden;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Dönüşlü kenar animasyonu */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: linear-gradient(270deg, #ff4081, #ffd740, #7c4dff, #18ffff, #ff4081);
+  background-size: 400% 400%;
+  z-index: 0;
+  animation: borderGradient 6s linear infinite;
+  padding: 2px;
+  mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* İç cam görünüm efekti */
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 14px;
+  z-index: 1;
+}
+
+/* İçerik üstte kalsın */
+.card span,
+.card a {
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+  color: #2d0353;
+}
+
+/* Butonlar */
+.card a.button {
+  background-color: #ff4081;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+.card a.button:hover {
+  background-color: #e91e63;
+}
+/* Genel stiller zaten mevcut */
+
+/* Butonları sağa kaydırmak için projeler içindeki card a.button'a ek stil */
+#projects .card a.button {
+  display: inline-block;
+   /* Sağ boşluk için */
+}
+
+/* Responsive düzenlemeler */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .hero {
+    padding: 100px 15px 40px;
+    font-size: 0.9rem;
+  }
+
+  #projects {
+    padding: 30px 15px;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 20px 20px;
+    border-radius: 12px;
+  }
+
+  /* Kartlar mobilde full genişlikte */
+  #projects {
+    flex-direction: column;
+  }
+
+  /* Butonlar mobilde sağa kayar ama kart içinde kalır */
+  #projects .card a.button {
+    margin-left: auto;
+    padding: 8px 20px;
+  }
+
+  .swiper-slide {
+    max-width: 100%;
+  }
+}
+
+/* Daha küçük ekranlar için ekstra küçültme */
+@media (max-width: 480px) {
+  nav a {
+    font-size: 0.9rem;
+  }
+
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  #projects {
+    padding: 20px 10px;
+  }
+
+  .card {
+    padding: 15px 15px;
+  }
+}
+
+/* Hover'da 3D eğilme ve glow */
+.card:hover {
+  transform: rotateY(4deg) rotateX(2deg) scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 64, 129, 0.4),
+              0 0 30px rgba(124, 77, 255, 0.3);
+}
+
+/* Border gradient animasyonu */
+@keyframes borderGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Animasyon başlangıcı */
+.slide-in-left,
+.slide-in-right {
+  opacity: 0;
+  transition: all 0.8s ease-out;
+}
+
+.slide-in-left {
+  transform: translateX(-80px);
+}
+
+.slide-in-right {
+  transform: translateX(80px);
+}
+
+/* Animasyon aktif */
+.slide-in-left.visible,
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #fff;
+  font-size: 0.9rem;
+  color: #666;
+}
