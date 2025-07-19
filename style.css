@@ -4,69 +4,61 @@ body {
   background: linear-gradient(to right, #ffecd2, #fcb69f);
   color: #2d0353;
 }
-/* Mevcut CSS'in */
-nav {
-  position: fixed;
-  width: 100%;
-  background: white;
-  padding: 1rem 0;
-  border-bottom: 1px solid #ccc;
-  z-index: 100;
-}
+.navbar-dark-blue {
+      background: linear-gradient(to right, #000428, #004e92);
+    }
 
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+    .navbar {
+      transition: all 0.4s ease;
+      opacity: 0;
+      transform: translateY(-20px);
+    }
 
-nav a {
-  text-decoration: none;
-  font-weight: bold;
-  color: #6a0572;
-  transition: color 0.3s ease;
-}
+    .navbar.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-nav a:hover {
-  color: #ff6f61;
-}
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.3rem;
+      display: flex;
+      align-items: center;
+    }
 
-/* 🔽 Eklemen gereken ek stiller */
+    .navbar-brand i {
+      margin-right: 8px;
+    }
 
-.menu-icon {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-  padding-left: 1rem;
-  color: #6a0572;
-}
+    .nav-link {
+      transition: all 0.3s ease;
+      position: relative;
+    }
 
-/* Mobil görünüm */
-@media (max-width: 768px) {
-  .menu-icon {
-    display: block;
-  }
+    .nav-link:hover {
+      color: #ffc107 !important;
+      transform: translateY(-2px);
+    }
 
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-    display: none;
-    background-color: white;
-    width: 100%;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    border-top: 1px solid #ccc;
-    padding: 1rem 0;
-  }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #ffc107;
+      transition: width 0.3s ease;
+    }
 
-  nav ul.show {
-    display: flex;
-  }
-}
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    /* Ortalanmış yazılar */
+    .navbar-nav {
+      margin: 0 auto;
+    }
 
 .modal {
   display: none;
