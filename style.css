@@ -270,11 +270,7 @@ h2::after {
 
 /* Responsive düzenlemeler */
 @media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    gap: 1rem;
-    padding: 0 1rem;
-  }
+
 
   .hero {
     padding: 100px 15px 40px;
@@ -327,6 +323,30 @@ h2::after {
 
   .card {
     padding: 15px 15px;
+  }
+}
+/* Mobil için: Menü dikey ve ortalanmış */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .navbar-toggler {
+    display: block !important;
+  }
+}
+
+/* Geniş ekran için: Menü yatay ve toggle görünmez */
+@media (min-width: 992px) {
+  .navbar-nav {
+    flex-direction: row !important;
+  }
+
+  .navbar-toggler {
+    display: none !important;
   }
 }
 
