@@ -5,28 +5,56 @@ body {
   background: linear-gradient(to right, #ffecd2, #fcb69f);
   color: #2d0353;
 }
-/* Arka plan */
-/* Navbar yazı rengi ve geçiş efekti */
-.navbar .nav-link {
-  font-weight: bold;
-  color: #f8f9fa;
-  transition: color 0.3s ease;
+/* Arka plan: Pudra Şeftali */
+.navbar-dark-blue {
+  background: linear-gradient(to right, #ffc3a0, #ffafbd);
+  box-shadow: 0 4px 8px rgba(255, 175, 189, 0.3);
 }
 
-.navbar .nav-link:hover {
-  color: #ff6f61;
-}
-
-/* Responsive ortalama ve spacing */
+/* Ortalanmış menü */
 .navbar-nav {
-  gap: 1.5rem;
+  margin: 0 auto;
 }
 
-@media (max-width: 991px) {
-  .navbar-nav {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
+/* Marka adı ve ikon - Yumuşak somon tonu */
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  color: #ff6f61 !important; /* Somon pembe */
+}
+
+.navbar-brand i {
+  margin-right: 8px;
+  color: #ff6f61 !important;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.85) !important; /* Mat beyaz */
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #ff6f61 !important; /* Romantik somon tonu */
+}
+
+/* Alttan kayan çizgi efekti */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background-color: #ffb6b9; /* Pembe tonunda alt çizgi */
+  transition: transform 0.4s ease;
 }
 
 .modal {
