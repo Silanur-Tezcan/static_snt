@@ -60,3 +60,8 @@ window.addEventListener('click', function (e) {
     modal.style.display = 'none';
   }
 });
+
+// açılır kapanır navbar
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('show');
+  }
