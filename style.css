@@ -7,40 +7,33 @@ body {
 .navbar-dark-blue {
       background: linear-gradient(to right, #000428, #004e92);
     }
-
-    .navbar {
+.navbar {
       transition: all 0.4s ease;
       opacity: 0;
       transform: translateY(-20px);
     }
-
-    .navbar.show {
+.navbar.show {
       opacity: 1;
       transform: translateY(0);
     }
-
-    .navbar-brand {
+.navbar-brand {
       font-weight: bold;
       font-size: 1.3rem;
       display: flex;
       align-items: center;
     }
-
-    .navbar-brand i {
+.navbar-brand i {
       margin-right: 8px;
     }
-
-    .nav-link {
+.nav-link {
       transition: all 0.3s ease;
       position: relative;
     }
-
-    .nav-link:hover {
+.nav-link:hover {
       color: #ffc107 !important;
       transform: translateY(-2px);
     }
-
-    .nav-link::after {
+.nav-link::after {
       content: "";
       position: absolute;
       bottom: 0;
@@ -50,13 +43,12 @@ body {
       background-color: #ffc107;
       transition: width 0.3s ease;
     }
-
-    .nav-link:hover::after {
+.nav-link:hover::after {
       width: 100%;
     }
 
     /* Ortalanmış yazılar */
-    .navbar-nav {
+.navbar-nav {
       margin: 0 auto;
     }
 
