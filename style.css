@@ -1,58 +1,71 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
   background: linear-gradient(to right, #ffecd2, #fcb69f);
   color: #2d0353;
 }
+/* Arka plan */
 .navbar-dark-blue {
-      background: linear-gradient(to right, #000428, #004e92);
-    }
+  background: linear-gradient(to right, #000428, #004e92);
+}
+
+/* Açılır animasyon */
 .navbar {
-      transition: all 0.4s ease;
-      opacity: 0;
-      transform: translateY(-20px);
-    }
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
 .navbar.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Logo */
 .navbar-brand {
-      font-weight: bold;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-    }
+  font-weight: bold;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+}
+
 .navbar-brand i {
-      margin-right: 8px;
-    }
+  margin-right: 8px;
+}
+
+/* Menü öğeleri */
 .nav-link {
-      transition: all 0.3s ease;
-      position: relative;
-    }
+  transition: all 0.3s ease;
+  position: relative;
+}
+
 .nav-link:hover {
-      color: #ffc107 !important;
-      transform: translateY(-2px);
-    }
+  color: #ffc107 !important;
+  transform: translateY(-2px);
+}
+
 .nav-link::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #ffc107;
-      transition: width 0.3s ease;
-    }
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffc107;
+  transition: width 0.3s ease;
+}
+
 .nav-link:hover::after {
-      width: 100%;
-    }
+  width: 100%;
+}
 
-    /* Ortalanmış yazılar */
+/* Ortalamak için */
 .navbar-nav {
-      margin: 0 auto;
-    }
-
-.modal {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}.modal {
   display: none;
   position: fixed;
   z-index: 1000;
