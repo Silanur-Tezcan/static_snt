@@ -62,6 +62,8 @@ window.addEventListener('click', function (e) {
 });
 
 // açılır kapanır navbar
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('show');
-  }
+  document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.navbar').forEach((el, i) => {
+        setTimeout(() => el.classList.add('show'), i * 200);
+      });
+    });
