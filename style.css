@@ -6,58 +6,29 @@ body {
   color: #2d0353;
 }
 /* Arka plan */
-.navbar-dark-blue {
-      background: linear-gradient(to right, #000428, #004e92);
-    }
-.navbar {
-      transition: all 0.4s ease;
-      opacity: 0;
-      transform: translateY(-20px);
-    }
-.navbar.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+/* Navbar yazı rengi ve geçiş efekti */
+.navbar .nav-link {
+  font-weight: bold;
+  color: #f8f9fa;
+  transition: color 0.3s ease;
+}
 
-.navbar-brand {
-      font-weight: bold;
-      font-size: 1.3rem;
-      display: flex;
-      align-items: center;
-    }
+.navbar .nav-link:hover {
+  color: #ff6f61;
+}
 
-.navbar-brand i {
-      margin-right: 8px;
-    }
-
-.nav-link {
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-.nav-link:hover {
-      color: #ffc107 !important;
-      transform: translateY(-2px);
-    }
-.nav-link::after {
-      content: "";
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background-color: #ffc107;
-      transition: width 0.3s ease;
-    }
-
-.nav-link:hover::after {
-      width: 100%;
-    }
-
-    /* Ortalanmış yazılar */
+/* Responsive ortalama ve spacing */
 .navbar-nav {
-      margin: 0 auto;
-    }
+  gap: 1.5rem;
+}
+
+@media (max-width: 991px) {
+  .navbar-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -318,30 +289,7 @@ h2::after {
     padding: 15px 15px;
   }
 }
-/* Mobil için: Menü dikey ve ortalanmış */
-@media (max-width: 991.98px) {
-  .navbar-nav {
-    flex-direction: column !important;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-  }
 
-  .navbar-toggler {
-    display: block !important;
-  }
-}
-
-/* Geniş ekran için: Menü yatay ve toggle görünmez */
-@media (min-width: 992px) {
-  .navbar-nav {
-    flex-direction: row !important;
-  }
-
-  .navbar-toggler {
-    display: none !important;
-  }
-}
 
 /* Hover'da 3D eğilme ve glow */
 .card:hover {
