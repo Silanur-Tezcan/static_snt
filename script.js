@@ -63,7 +63,7 @@ window.addEventListener('click', function (e) {
 
 // açılır kapanır navbar
 document.addEventListener("DOMContentLoaded", function () {
-   document.querySelectorAll('.navbar').forEach((el, i) => {
-      setTimeout(() => el.classList.add('show'), i * 200);
-   });
+  document.querySelectorAll('.navbar').forEach((el, i) => {
+    setTimeout(() => el.classList.add('show'), i * 200);
+  });
 });
