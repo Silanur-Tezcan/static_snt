@@ -1,21 +1,414 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sıla | Web Geliştirici Adayı</title>
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Bootstrap JS (navbar collapse için şart) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <style>
-            form {
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sıla | Web Geliştirici Adayı</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS (navbar collapse için şart) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ffecd2, #fcb69f);
+            color: #2d0353;
+        }
+
+        /* Arka plan: Pudra Şeftali */
+        .navbar-dark-blue {
+            background: linear-gradient(to right, #ffc3a0, #ffafbd);
+            box-shadow: 0 4px 8px rgba(255, 175, 189, 0.3);
+        }
+
+        /* Ortalanmış menü */
+        .navbar-nav {
+            margin: 0 auto;
+        }
+
+        /* Marka adı ve ikon - Yumuşak somon tonu */
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            color: #ff6f61 !important;
+            /* Somon pembe */
+        }
+
+        .navbar-brand i {
+            margin-right: 8px;
+            color: #ff6f61 !important;
+        }
+
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            /* Mat beyaz */
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: #ff6f61 !important;
+            /* Romantik somon tonu */
+        }
+
+        /* Alttan kayan çizgi efekti */
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            transform-origin: center;
+            width: 100%;
+            height: 2px;
+            background-color: #ffb6b9;
+            /* Pembe tonunda alt çizgi */
+            transition: transform 0.4s ease;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+            animation: zoomIn 0.3s ease;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+
+        .social-buttons {
+            margin-top: 20px;
+        }
+
+        .social-buttons .btn {
+            display: inline-block;
+            margin-right: 10px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn.github {
+            background-color: #24292e;
+        }
+
+        .btn.github:hover {
+            background-color: #000;
+        }
+
+        .btn.linkedin {
+            background-color: #0077b5;
+        }
+
+        .btn.linkedin:hover {
+            background-color: #005582;
+        }
+
+        .hero {
+            padding: 120px 20px 60px;
+            text-align: center;
+            background: linear-gradient(to right, #e0f2f1, #fce4ec);
+        }
+
+        .swiper {
+            padding-top: 20px;
+            padding-bottom: 40px;
+        }
+
+        .swiper-slide:hover {
+            transform: scale(1.05);
+        }
+
+        .swiper-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 300px;
+            padding: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 8px;
+            max-height: 200px;
+        }
+
+        .section {
+            max-width: 800px;
+            margin: auto;
+            padding: 100px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            color: #6a0572;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #ff6f61;
+            margin-top: 10px;
+        }
+
+        #projects {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            padding: 50px 20px;
+        }
+
+        .card {
+            position: relative;
+            padding: 25px 30px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            overflow: hidden;
+            perspective: 1000px;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        /* Dönüşlü kenar animasyonu */
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            background: linear-gradient(270deg, #ff4081, #ffd740, #7c4dff, #18ffff, #ff4081);
+            background-size: 400% 400%;
+            z-index: 0;
+            animation: borderGradient 6s linear infinite;
+            padding: 2px;
+            mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* İç cam görünüm efekti */
+        .card::after {
+            content: "";
+            position: absolute;
+            inset: 2px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 14px;
+            z-index: 1;
+        }
+
+        /* İçerik üstte kalsın */
+        .card span,
+        .card a {
+            position: relative;
+            z-index: 2;
+            font-weight: 600;
+            color: #2d0353;
+        }
+
+        /* Butonlar */
+        .card a.button {
+            background-color: #ff4081;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s;
+        }
+
+        .card a.button:hover {
+            background-color: #e91e63;
+        }
+
+        /* Genel stiller zaten mevcut */
+
+        /* Butonları sağa kaydırmak için projeler içindeki card a.button'a ek stil */
+        #projects .card a.button {
+            display: inline-block;
+            /* Sağ boşluk için */
+        }
+
+        /* Responsive düzenlemeler */
+        @media (max-width: 768px) {
+
+
+            .hero {
+                padding: 100px 15px 40px;
+                font-size: 0.9rem;
+            }
+
+            #projects {
+                padding: 30px 15px;
+                gap: 20px;
+            }
+
+            .card {
+                padding: 20px 20px;
+                border-radius: 12px;
+            }
+
+            /* Kartlar mobilde full genişlikte */
+            #projects {
+                flex-direction: column;
+            }
+
+            /* Butonlar mobilde sağa kayar ama kart içinde kalır */
+            #projects .card a.button {
+                margin-left: auto;
+                padding: 8px 20px;
+            }
+
+            .swiper-slide {
+                max-width: 100%;
+            }
+        }
+
+        /* Daha küçük ekranlar için ekstra küçültme */
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            #projects {
+                padding: 20px 10px;
+            }
+
+            .card {
+                padding: 15px 15px;
+            }
+        }
+
+
+        /* Hover'da 3D eğilme ve glow */
+        .card:hover {
+            transform: rotateY(4deg) rotateX(2deg) scale(1.02);
+            box-shadow: 0 0 20px rgba(255, 64, 129, 0.4),
+                0 0 30px rgba(124, 77, 255, 0.3);
+        }
+
+        /* Border gradient animasyonu */
+        @keyframes borderGradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Animasyon başlangıcı */
+        .slide-in-left,
+        .slide-in-right {
+            opacity: 0;
+            transition: all 0.8s ease-out;
+        }
+
+        .slide-in-left {
+            transform: translateX(-80px);
+        }
+
+        .slide-in-right {
+            transform: translateX(80px);
+        }
+
+        /* Animasyon aktif */
+        .slide-in-left.visible,
+        .slide-in-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #fff;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        form {
             background: #fff;
             padding: 2rem;
             border-radius: 10px;
@@ -41,141 +434,219 @@
             border-radius: 5px;
             cursor: pointer;
         }
-  </style>
+    </style>
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-dark-blue">
-  <div class="container">
-    <a class="navbar-brand" href="#"><i class="fas fa-lightbulb"></i> SNT</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-      aria-controls="mainNavbar" aria-expanded="false" aria-label="Menüyü Aç">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="#about">Hakkımda</a></li>
-        <li class="nav-item"><a class="nav-link" href="#certificates">Sertifikalar</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projeler</a></li>
-      </ul>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-dark-blue">
+        <div class="container">
+            <a class="navbar-brand" href="#"><i class="fas fa-lightbulb"></i> SNT</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+                aria-controls="mainNavbar" aria-expanded="false" aria-label="Menüyü Aç">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">Hakkımda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#certificates">Sertifikalar</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projeler</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <header class="hero">
+        <h1>Merhaba, ben Sıla 👩‍💻</h1>
+        <p>Web geliştirmeye gönül vermiş bir yazılım tutkunu</p>
+    </header>
+    <section id="about" class="section animate">
+        <h2>Ben Kimim?</h2>
+        <p>
+            Merhaba! Ben Sıla Nur Tezcan, Mehmet Akif Ersoy Üniversitesi Zeliha Tolunay Uygulamalı Bilimler Yüksekokulu
+            Yönetim Bilişim Sistemleri 4. sınıf öğrencisiyim. Web teknolojilerine duyduğum ilgi doğrultusunda HTML, CSS,
+            JavaScript, Python, Bootstrap, Django ve SQLite gibi diller ve araçlar üzerine kendimi geliştirdim.
+        </p>
+        <p>
+            Şu anda özellikle web geliştirme alanında yoğunlaşmış durumdayım. Bu alandaki projelerim GitHub profilimde
+            yer almakta. En dikkat çeken projelerimden biri, dinamik yapıya sahip kapsamlı bir eğitim web sitesidir. Bu
+            projede kullanıcı dostu bir ana sayfa, öğrenci paneli ve yönetici paneli bulunmaktadır. Yönetici paneli
+            aracılığıyla öğrencilere erişim izni verilebilmekte ve video ile kaynak materyaller yüklenebilmektedir.
+        </p>
+        <p>
+            Hedefim, estetik ve işlevselliği harmanlayan, kullanıcı odaklı çözümler üretmek ve teknolojiyi yalnızca bir
+            araç değil, aynı zamanda güçlü bir anlatım dili olarak kullanmaktır.
+        </p>
+        <div class="social-buttons">
+            <a href="https://github.com/Silanur-Tezcan" class="btn github" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/s%C4%B1la-nur-tezcan-86b804326/" class="btn linkedin" target="_blank">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <section id="certificates" class="section animate">
+        <h2>Sertifikalar</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="html_btk.png" alt="HTML & CSS Sertifikası" class="zoomable" />
+                    🌐 BTK HTML & CSS Sertifikası
+                </div>
+                <div class="swiper-slide">
+                    <img src="py_t.png" alt="Python Temelleri" class="zoomable" />
+                    🐍 TURKCELL Python Temelleri
+                </div>
+                <div class="swiper-slide">
+                    <img src="django" alt="Django Web Geliştirme" class="zoomable" />
+                    🌐 BTK Django ile Web Geliştirme
+                </div>
+                <div class="swiper-slide">
+                    <img src="css_btk.png" alt="Django Web Geliştirme" class="zoomable" />
+                    🌐 BTK Css Temelleri
+                </div>
+                <div class="swiper-slide">
+                    <img src="css_t.png" alt="Django Web Geliştirme" class="zoomable" />
+                    🌐 TURKCELL Css Temelleri
+                </div>
+                <div class="swiper-slide">
+                    <img src="html_t.png" alt="Django Web Geliştirme" class="zoomable" />
+                    🌐 TURKCELL HTML Temelleri
+                </div>
+                <div class="swiper-slide">
+                    <img src="js_btk.png" alt="Django Web Geliştirme" class="zoomable" />
+                    🌱 BTK JavaScript Temelleri
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <section id="projects" class="section animate">
+        <h2>Projeler</h2>
+
+        <div class="card slide-in-left">
+            <span>🎓 B12 Akademi Eğitim Sitesi (Dinamik)</span>
+            <a href="b12.html" class="button" style="margin-left: 50px; ">Detay</a>
+        </div>
+
+        <div class="card slide-in-right">
+            <span>📱 Django Tabanlı QR Menü Sistemi (Admin Panelli)</span>
+            <a href="qr_menu.html" class="button" style="margin-left: 143px; ">Detay</a>
+        </div>
+
+        <div class="card slide-in-left">
+            <span>📘 Statik Programlama Dilleri Üzerine Bilgilendirici Blog </span>
+            <a href="blog.html" class="button" style="margin-left: 112px; ">Detay</a>
+        </div>
+        <div class="card slide-in-right">
+            <span>📅 Django Tabanlı Rezervasyon Sistemi (Tarihe Göre)</span>
+            <a href="rezerve.html" class="button" style="margin-left: 143px; ">Detay</a>
+        </div>
+    </section>
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
     </div>
-  </div>
-</nav>
+    <br> <br>
+    <form action="https://formsubmit.co/tzcn4868@gmail.com" method="POST">
+        <input type="text" name="name" placeholder="Adınız" required>
+        <input type="email" name="email" placeholder="E-posta adresiniz" required>
+        <textarea name="message" placeholder="Mesajınız" rows="5" required></textarea>
 
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://static-snt.onrender.com/#iletisim">
 
-  <header class="hero">
-    <h1>Merhaba, ben Sıla 👩‍💻</h1>
-    <p>Web geliştirmeye gönül vermiş bir yazılım tutkunu</p>
-  </header>
-<section id="about" class="section animate">
-  <h2>Ben Kimim?</h2>
-  <p>
-    Merhaba! Ben Sıla Nur Tezcan, Mehmet Akif Ersoy Üniversitesi Zeliha Tolunay Uygulamalı Bilimler Yüksekokulu Yönetim Bilişim Sistemleri 4. sınıf öğrencisiyim. Web teknolojilerine duyduğum ilgi doğrultusunda HTML, CSS, JavaScript, Python, Bootstrap, Django ve SQLite gibi diller ve araçlar üzerine kendimi geliştirdim.
-  </p>
-  <p>
-    Şu anda özellikle web geliştirme alanında yoğunlaşmış durumdayım. Bu alandaki projelerim GitHub profilimde yer almakta. En dikkat çeken projelerimden biri, dinamik yapıya sahip kapsamlı bir eğitim web sitesidir. Bu projede kullanıcı dostu bir ana sayfa, öğrenci paneli ve yönetici paneli bulunmaktadır. Yönetici paneli aracılığıyla öğrencilere erişim izni verilebilmekte ve video ile kaynak materyaller yüklenebilmektedir.
-  </p>
-  <p>
-    Hedefim, estetik ve işlevselliği harmanlayan, kullanıcı odaklı çözümler üretmek ve teknolojiyi yalnızca bir araç değil, aynı zamanda güçlü bir anlatım dili olarak kullanmaktır.
-  </p>
-  <div class="social-buttons">
-    <a href="https://github.com/Silanur-Tezcan" class="btn github" target="_blank">
-      <i class="fab fa-github"></i> GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/s%C4%B1la-nur-tezcan-86b804326/" class="btn linkedin" target="_blank">
-      <i class="fab fa-linkedin"></i> LinkedIn
-    </a>
-  </div>
-</section>
+        <button type="submit">Gönder</button>
+        <input type="hidden" name="_subject" value="Yeni İletişim Mesajı">
+        <input type="hidden" name="_autoresponse"
+            value="Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağım. Teşekkürler!">
+    </form>
+    <footer>
+        <p>© 2025 Sıla | Tüm hakları saklıdır.</p>
+        <p>
+            Diğer projelerime göz atmak için
+            <a href="https://github.com/Silanur-Tezcan" target="_blank"
+                style="color: #4f46e5; font-weight: 500; text-decoration: underline;">
+                GitHub profilimi ziyaret edebilirsiniz
+            </a>.
+        </p>
+    </footer>
 
-  <section id="certificates" class="section animate">
-    <h2>Sertifikalar</h2>
-    <div class="swiper mySwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <img src="html_btk.png" alt="HTML & CSS Sertifikası" class="zoomable"/>
-          🌐 BTK HTML & CSS Sertifikası
-        </div>
-        <div class="swiper-slide">
-          <img src="py_t.png" alt="Python Temelleri" class="zoomable"/>
-          🐍 TURKCELL Python Temelleri
-        </div>
-          <div class="swiper-slide">
-          <img src="django" alt="Django Web Geliştirme" class="zoomable" />
-          🌐 BTK Django ile Web Geliştirme
-        </div>
-        <div class="swiper-slide">
-          <img src="css_btk.png" alt="Django Web Geliştirme"class="zoomable" />
-          🌐 BTK Css Temelleri
-        </div>
-        <div class="swiper-slide">
-          <img src="css_t.png" alt="Django Web Geliştirme" class="zoomable" />
-          🌐 TURKCELL Css Temelleri
-        </div>
-         <div class="swiper-slide">
-          <img src="html_t.png" alt="Django Web Geliştirme" class="zoomable" />
-          🌐 TURKCELL HTML Temelleri
-        </div>
-         <div class="swiper-slide">
-          <img src="js_btk.png" alt="Django Web Geliştirme" class="zoomable"/>
-          🌱 BTK JavaScript Temelleri
-        </div>
-      </div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script >
+        // Swiper başlatma
+const swiper = new Swiper(".mySwiper", {
+  slidesPerView: 1,
+  spaceBetween: 20,
 
-  <section id="projects" class="section animate">
-    <h2>Projeler</h2>
+  breakpoints: {
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+  },
+});
 
-    <div class="card slide-in-left">
-      <span>🎓 B12 Akademi Eğitim Sitesi (Dinamik)</span>
-      <a href="b12.html" class="button" style="margin-left: 50px; ">Detay</a>
-    </div>
+// Scroll animasyonu (section'lar için)
+const animatedSections = document.querySelectorAll(".animate");
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    } else {
+      // Dilersen aşağıdaki satırı kaldırarak animasyonun sadece ilk kez tetiklenmesini sağlayabilirsin
+      entry.target.classList.remove("visible");
+    }
+  });
+});
+animatedSections.forEach((section) => sectionObserver.observe(section));
 
-    <div class="card slide-in-right">
-     <span>📱 Django Tabanlı QR Menü Sistemi (Admin Panelli)</span>
-      <a href="qr_menu.html" class="button" style="margin-left: 143px; ">Detay</a>
-    </div>
+// Kartlar için sağ ve soldan kayarak giriş animasyonu
+const slideCards = document.querySelectorAll('.slide-in-left, .slide-in-right');
 
-    <div class="card slide-in-left">
-      <span>📘 Statik Programlama Dilleri Üzerine Bilgilendirici Blog </span>
-      <a href="blog.html" class="button" style="margin-left: 112px; ">Detay</a>
-    </div>
-    <div class="card slide-in-right">
-    <span>📅 Django Tabanlı Rezervasyon Sistemi (Tarihe Göre)</span>
-      <a href="rezerve.html" class="button" style="margin-left: 143px; ">Detay</a>
-    </div>
-  </section>
-<div id="imageModal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="modalImage">
-</div>
-<br> <br>
-<form action="https://formsubmit.co/tzcn4868@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="Adınız" required>
-  <input type="email" name="email" placeholder="E-posta adresiniz" required>
-  <textarea name="message" placeholder="Mesajınız" rows="5" required></textarea>
+const slideObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    } else {
+      entry.target.classList.remove('visible');
+    }
+  });
+}, {
+  threshold: 0.1,
+});
 
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://static-snt.onrender.com/#iletisim">
+slideCards.forEach(card => slideObserver.observe(card));
+// resim büyütme
+document.querySelectorAll('.zoomable').forEach(item => {
+  item.addEventListener('click', function () {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImage');
 
-  <button type="submit">Gönder</button>
-  <input type="hidden" name="_subject" value="Yeni İletişim Mesajı">
-<input type="hidden" name="_autoresponse" value="Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağım. Teşekkürler!">
-</form>
- <footer>
-  <p>© 2025 Sıla | Tüm hakları saklıdır.</p>
-  <p>
-    Diğer projelerime göz atmak için 
-    <a href="https://github.com/Silanur-Tezcan" target="_blank" style="color: #4f46e5; font-weight: 500; text-decoration: underline;">
-      GitHub profilimi ziyaret edebilirsiniz
-    </a>.
-  </p>
-</footer>
+    modal.style.display = 'block';
+    modalImg.src = this.src;
+  });
+});
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
+document.querySelector('.close').addEventListener('click', function () {
+  document.getElementById('imageModal').style.display = 'none';
+});
+
+window.addEventListener('click', function (e) {
+  const modal = document.getElementById('imageModal');
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
+
+// açılır kapanır navbar
+// document.addEventListener("DOMContentLoaded", function () {
+//   document.querySelectorAll('.navbar').forEach((el, i) => {
+//     setTimeout(() => el.classList.add('show'), i * 200);
+//   });
+// });
+    </script>
 </body>
+
 </html>
-
-
