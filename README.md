@@ -4,8 +4,8 @@ Bu proje, HTML, CSS ve JavaScript kullanılarak geliştirilen **kişisel bir web
 
 ## 🔗 Canlı Yayın
 
-Web sitemi Render üzerinden ziyaret edebilirsiniz:  
-🌍 [https://render-linkinizburaya.com](https://static-snt.onrender.com/)
+ 
+🌍 [https://static-snt.onrender.com/]
 
 ## 🛠️ Kullanılan Teknolojiler
 
