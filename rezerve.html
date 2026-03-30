@@ -1,200 +1,487 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
- <title>Sıla | Sipariş Rezervasyon Sistemi</title>
- <link rel="icon" type="image/png" href="logo.png" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Rezervasyon Platformu - Django ile geliştirilmiş rezervasyon sistemi" />
+    <meta name="keywords" content="Rezervasyon Platformu, Django, Rezervasyon Sistemi" />
+    <title>Rezervasyon Platformu | Sıla Nur Tezcan</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1e293b;
+            --accent-blue: #3b82f6;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #7c3aed;
+            --text-light: #f1f5f9;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    * {
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      margin: 0;
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #e0e7ff, #f9fafb);
-      color: #222;
-      line-height: 1.6;
-      padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #1a254d 50%, #2d1b69 100%);
+            color: var(--text-light);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-    .project-container {
-      max-width: 900px;
-      width: 100%;
-      background: #fff;
-      border-radius: 16px;
-      padding: 30px 40px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      display: flex;
-      flex-direction: column;
-      gap: 30px;
-    }
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            animation: drift 20s linear infinite;
+        }
 
-    h1 {
-      margin: 0;
-      font-weight: 700;
-      font-size: 2.4rem;
-      color: #4f46e5;
-      text-align: center;
-      letter-spacing: 1px;
-      text-shadow: 1px 1px 4px rgba(79,70,229,0.3);
-    }
+        @keyframes drift {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
 
-    .description {
-      font-size: 1.15rem;
-      color: #555;
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto;
-    }
+        .navbar {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
 
-    .media-gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-    }
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .media-gallery img,
-    .media-gallery video {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 8px 24px rgba(79,70,229,0.15);
-      object-fit: cover;
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-      cursor: pointer;
-      filter: drop-shadow(0 3px 6px rgba(0,0,0,0.1));
-    }
+        .navbar-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .media-gallery img:hover,
-    .media-gallery video:hover {
-      transform: scale(1.05) rotate(1deg);
-      box-shadow: 0 12px 40px rgba(79,70,229,0.35);
-      filter: drop-shadow(0 8px 15px rgba(0,0,0,0.15));
-    }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
 
-    .back-button {
-      margin-top: 40px;
-      padding: 12px 28px;
-      background: #4f46e5;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      align-self: center;
-      box-shadow: 0 6px 15px rgba(79,70,229,0.4);
-      transition: background 0.3s ease, transform 0.3s ease;
-      user-select: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
+        .back-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .back-button:hover {
-      background: #4338ca;
-      transform: scale(1.05);
-      box-shadow: 0 10px 25px rgba(67,56,202,0.6);
-    }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: rgba(59, 130, 246, 0.2);
+            border: 1px solid rgba(59, 130, 246, 0.4);
+            color: var(--accent-blue);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .project-container {
-        padding: 25px 20px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      .description {
-        font-size: 1rem;
-      }
-    }
+        .back-button:hover {
+            background: rgba(59, 130, 246, 0.3);
+            border-color: rgba(59, 130, 246, 0.6);
+            transform: translateX(-4px);
+        }
 
-    @media (max-width: 480px) {
-      .media-gallery {
-        grid-template-columns: 1fr;
-      }
-      .back-button {
-        width: 100%;
-        justify-content: center;
-      }
-    }
-  </style>
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .project-subtitle {
+            font-size: 1.2rem;
+            color: rgba(241, 245, 249, 0.7);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .project-description {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 50px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: rgba(241, 245, 249, 0.85);
+            animation: zoomIn 0.8s ease 0.2s both;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(6, 182, 212, 0.2));
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-blue);
+        }
+
+        .gallery-section {
+            margin-bottom: 60px;
+        }
+
+        .gallery-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            animation: slideInUp 0.8s ease 0.4s both;
+        }
+
+        .media-gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .media-gallery img:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: rgba(59, 130, 246, 0.4);
+            box-shadow: 0 20px 48px rgba(59, 130, 246, 0.2);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .footer {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 20px;
+            margin-top: 80px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section a {
+            color: rgba(241, 245, 249, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+            display: block;
+            margin: 5px 0;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(241, 245, 249, 0.5);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .media-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .project-description {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .project-title {
+                font-size: 1.5rem;
+            }
+
+            .project-subtitle {
+                font-size: 1rem;
+            }
+
+            .tech-stack {
+                gap: 8px;
+            }
+
+            .tech-item {
+                font-size: 0.8rem;
+                padding: 6px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="project-container">
-    <h1>📅 Django Tabanlı Rezervasyon Sistemi (Tarihe Göre)</h1>
-    <p class="description">
-  Bu projede Django framework’ü ile SQLite veri tabanı kullanarak hem kullanıcıların içeriklere erişebildiği hem de yalnızca yetkilendirilmiş personelin giriş yapabildiği güvenli bir yapı oluşturdum. Arayüz tasarımı HTML, CSS ve JavaScript ile desteklenmiş olup, sistem üzerinden tarihe göre sıralanmış rezervasyonlar görüntülenebilmekte ve ihtiyaç halinde kolayca silinebilmektedir.
-</p>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="index.html" class="navbar-logo">
+                <span class="logo-icon">SNT</span>
+            </a>
+            <div class="back-nav">
+                <a href="index.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> Projelerim
+                </a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="media-gallery">
-      <img src="rezerve.png" alt="B12 Akademi Görsel 1" loading="lazy" />
-      <img src="rezerve2.png" alt="B12 Akademi Görsel 2" loading="lazy" />
-      <img src="rezerve3.png" alt="B12 Akademi Görsel 2" loading="lazy" />
-     
+    <div class="container">
+        <div class="project-header">
+            <h1 class="project-title">📅 Rezervasyon Platformu</h1>
+            <p class="project-subtitle">Django ile Geliştirilmiş Dinamik Sistem</p>
+        </div>
 
- 
-      
-    
+        <div class="project-description">
+            <p>Bu projede Django framework'ü ile SQLite veri tabanı kullanarak hem kullanıcıların rezervasyonları görebildiği hem de yalnızca yetkilendirilmiş personelin giriş yapabildiği güvenli bir sistem oluşturdum. Platform kullanıcı kayıt, rezervasyon yönetimi ve admin panelinde tarih sırasına göre listeleme gibi özelliklere sahiptir. Dinamik yapı sayesinde sistem üzerinden tarihe göre sıralanmış rezervasyonlar görüntülenebilmekte ve ihtiyaç halinde kolayca silinebilmektedir.</p>
+            
+            <div class="tech-stack">
+                <span class="tech-item"><i class="fab fa-python"></i> Django</span>
+                <span class="tech-item"><i class="fas fa-database"></i> SQLite3</span>
+                <span class="tech-item"><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                <span class="tech-item"><i class="fas fa-envelope"></i> Email Integration</span>
+            </div>
+        </div>
+
+        <div class="gallery-section">
+            <h2 class="gallery-title">Proje Görselleri</h2>
+            <div class="media-gallery">
+                <img src="rezerve.png" alt="Rezervasyon Platformu Interfacı" loading="lazy" />
+                <img src="rezerve2.png" alt="Rezervasyon Platformu Admin Panel" loading="lazy" />
+                <img src="rezerve3.png" alt="Rezervasyon Platformu Listeleme" loading="lazy" />
+            </div>
+        </div>
     </div>
-  </div>
 
- <a href="index.html" class="back-button" aria-label="Geri Dön">
-  ← Geri Dön
-</a>
-  <!-- Bu kısmı body'nin sonuna, </body> kapanışından hemen önce ekle -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.media-gallery img');
+    <div class="modal" id="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImg" alt="" />
+    </div>
 
-    // Modal elementi oluştur
-    const modal = document.createElement('div');
-    modal.style.position = 'fixed';
-    modal.style.top = 0;
-    modal.style.left = 0;
-    modal.style.width = '100vw';
-    modal.style.height = '100vh';
-    modal.style.background = 'rgba(0,0,0,0.8)';
-    modal.style.display = 'flex';
-    modal.style.justifyContent = 'center';
-    modal.style.alignItems = 'center';
-    modal.style.cursor = 'zoom-out';
-    modal.style.opacity = 0;
-    modal.style.pointerEvents = 'none';
-    modal.style.transition = 'opacity 0.3s ease';
-    modal.style.zIndex = 9999;
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>İletişim</h3>
+                <a href="tel:+905415751146">📱 +90 541 575 1146</a>
+                <a href="mailto:tzcn4868@gmail.com">📧 tzcn4868@gmail.com</a>
+            </div>
+            <div class="footer-section">
+                <h3>Sosyal Medya</h3>
+                <a href="https://www.linkedin.com/in/s%C4%B1la-nur-tezcan-86b804326/" target="_blank">LinkedIn</a>
+                <a href="https://github.com/Silanur-Tezcan" target="_blank">GitHub</a>
+            </div>
+            <div class="footer-section">
+                <h3>Hızlı Linkler</h3>
+                <a href="index.html#projects">Projeler</a>
+                <a href="index.html#contact">İletişim</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Sıla Nur Tezcan. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
 
-    const modalImg = document.createElement('img');
-    modalImg.style.maxWidth = '90%';
-    modalImg.style.maxHeight = '90%';
-    modalImg.style.borderRadius = '12px';
-    modalImg.style.boxShadow = '0 10px 40px rgba(255,255,255,0.3)';
-    modal.appendChild(modalImg);
+    <script>
+        document.querySelectorAll('.media-gallery img').forEach(img => {
+            img.addEventListener('click', function() {
+                document.getElementById('modal').classList.add('active');
+                document.getElementById('modalImg').src = this.src;
+            });
+        });
 
-    document.body.appendChild(modal);
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
 
-    images.forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.addEventListener('click', () => {
-        modalImg.src = img.src;
-        modal.style.opacity = 1;
-        modal.style.pointerEvents = 'auto';
-      });
-    });
-
-    modal.addEventListener('click', () => {
-      modal.style.opacity = 0;
-      modal.style.pointerEvents = 'none';
-    });
-  });
-</script>
-
+        document.getElementById('modal').addEventListener('click', function() {
+            this.classList.remove('active');
+        });
+    </script>
 </body>
 </html>

@@ -4,162 +4,595 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sıla | Web Geliştirici Adayı</title>
+    <meta name="description" content="Sıla Nur Tezcan - Web & Mobile Developer. Django, Flutter, Firebase ve modern teknolojilerle web ve mobil uygulamalar geliştiriyorum." />
+    <meta name="keywords" content="Web Developer, Mobile Developer, Django, Flutter, Firebase, Portfolio, Python" />
+    <meta name="author" content="Sıla Nur Tezcan" />
+    <meta property="og:title" content="Sıla Nur Tezcan | Web & Mobile Developer" />
+    <meta property="og:description" content="Profesyonel web ve mobil geliştirici portföyü. Yönetim Bilişim Sistemleri öğrencisi, MAKÜ." />
+    
+    <title>Sıla Nur Tezcan | Full Stack Web Developer</title>
     <link rel="icon" type="image/png" href="logo.png" />
-  
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    
+    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Bootstrap JS (navbar collapse için şart) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-dark-blue">
-        <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-lightbulb"></i> SNT</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
-                aria-controls="mainNavbar" aria-expanded="false" aria-label="Menüyü Aç">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-center" id="mainNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="#about">Hakkımda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#certificates">Sertifikalar</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#projects">Projeler</a></li>
-                </ul>
+    <!-- ============ NAVBAR ============ -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-logo">
+                <span class="logo-icon">SNT</span>
+            </a>
+            
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            
+            <ul class="navbar-menu">
+                <li><a href="#home" class="nav-link">Anasayfa</a></li>
+                <li><a href="#about" class="nav-link">Hakkımda</a></li>
+                <li><a href="#skills" class="nav-link">Teknolojiler</a></li>
+                <li><a href="#projects" class="nav-link">Projeler</a></li>
+                <li><a href="#certificates" class="nav-link">Sertifikalar</a></li>
+                <li><a href="#contact" class="nav-link">İletişim</a></li>
+            </ul>
         </div>
     </nav>
 
-
-    <header class="hero">
-        <h1>Merhaba, ben Sıla 👩‍💻</h1>
-        <p>Web geliştirmeye gönül vermiş bir yazılım tutkunu</p>
-    </header>
-    <section id="about" class="section animate">
-        <h2>Ben Kimim?</h2>
-        <p>
-            Merhaba! Ben Sıla Nur Tezcan, Mehmet Akif Ersoy Üniversitesi Zeliha Tolunay Uygulamalı Bilimler Yüksekokulu
-            Yönetim Bilişim Sistemleri 4. sınıf öğrencisiyim. Web teknolojilerine duyduğum ilgi doğrultusunda HTML, CSS,
-            JavaScript, Python, Bootstrap, Django ve SQLite gibi diller ve araçlar üzerine kendimi geliştirdim.
-        </p>
-        <p>
-            Şu anda özellikle web geliştirme alanında yoğunlaşmış durumdayım. Bu alandaki projelerim GitHub profilimde
-            yer almakta. En dikkat çeken projelerimden biri, dinamik yapıya sahip kapsamlı bir eğitim web sitesidir. Bu
-            projede kullanıcı dostu bir ana sayfa, öğrenci paneli ve yönetici paneli bulunmaktadır. Yönetici paneli
-            aracılığıyla öğrencilere erişim izni verilebilmekte ve video ile kaynak materyaller yüklenebilmektedir.
-        </p>
-        <p>
-            Hedefim, estetik ve işlevselliği harmanlayan, kullanıcı odaklı çözümler üretmek ve teknolojiyi yalnızca bir
-            araç değil, aynı zamanda güçlü bir anlatım dili olarak kullanmaktır.
-        </p>
-        <div class="social-buttons">
-            <a href="https://github.com/Silanur-Tezcan" class="btn github" target="_blank">
-                <i class="fab fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/s%C4%B1la-nur-tezcan-86b804326/" class="btn linkedin" target="_blank">
-                <i class="fab fa-linkedin"></i> LinkedIn
-            </a>
-        </div>
-    </section>
-
-    <section id="certificates" class="section animate">
-        <h2>Sertifikalar</h2>
-        <div class="swiper mySwiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <img src="html_btk.png" alt="HTML & CSS Sertifikası" class="zoomable" />
-                    🌐 BTK HTML & CSS Sertifikası
-                </div>
-                <div class="swiper-slide">
-                    <img src="py_t.png" alt="Python Temelleri" class="zoomable" />
-                    🐍 TURKCELL Python Temelleri
-                </div>
-                <div class="swiper-slide">
-                    <img src="django" alt="Django Web Geliştirme" class="zoomable" />
-                    🌐 BTK Django ile Web Geliştirme
-                </div>
-                <div class="swiper-slide">
-                    <img src="css_btk.png" alt="Django Web Geliştirme" class="zoomable" />
-                    🌐 BTK Css Temelleri
-                </div>
-                <div class="swiper-slide">
-                    <img src="css_t.png" alt="Django Web Geliştirme" class="zoomable" />
-                    🌐 TURKCELL Css Temelleri
-                </div>
-                <div class="swiper-slide">
-                    <img src="html_t.png" alt="Django Web Geliştirme" class="zoomable" />
-                    🌐 TURKCELL HTML Temelleri
-                </div>
-                <div class="swiper-slide">
-                    <img src="js_btk.png" alt="Django Web Geliştirme" class="zoomable" />
-                    🌱 BTK JavaScript Temelleri
+    <!-- ============ HERO SECTION ============ -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Merhaba, ben <span class="highlight">Sıla Nur</span>
+                </h1>
+                <p class="hero-subtitle">Web & Mobile Developer</p>
+                <p class="hero-description">
+                    Django, Flutter ve modern teknolojilerle web ve mobil uygulamalar geliştiren, yazılım geliştirmeye tutkulu bir geliştirici.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>Projelerime Bak</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>İletişime Geç</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
-            <div class="swiper-pagination"></div>
+            
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
         </div>
     </section>
 
-    <section id="projects" class="section animate">
-        <h2>Projeler</h2>
-
-        <div class="card slide-in-left">
-            <span>🎓 B12 Akademi Eğitim Sitesi (Dinamik)</span>
-            <a href="b12.html" class="button" style="margin-left: 50px; ">Detay</a>
-        </div>
-
-        <div class="card slide-in-right">
-            <span>📱 Django Tabanlı QR Menü Sistemi (Admin Panelli)</span>
-            <a href="qr_menu.html" class="button" style="margin-left: 143px; ">Detay</a>
-        </div>
-
-        <div class="card slide-in-left">
-            <span>📘 Statik Programlama Dilleri Üzerine Bilgilendirici Blog </span>
-            <a href="blog.html" class="button" style="margin-left: 112px; ">Detay</a>
-        </div>
-        <div class="card slide-in-right">
-            <span>📅 Django Tabanlı Rezervasyon Sistemi (Tarihe Göre)</span>
-            <a href="rezerve.html" class="button" style="margin-left: 143px; ">Detay</a>
+    <!-- ============ ABOUT SECTION ============ -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Tanış</span>
+                <h2 class="section-title">Hakkımda</h2>
+                <p class="section-description">Yazılım geliştirmeye tutkuyla eğilim gösteren, yaratıcı ve detay odaklı bir geliştirici</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-block">
+                        <h3>👋 Kim Olduğum</h3>
+                        <p>
+                            Merhaba! Ben Sıla Nur Tezcan, Mehmet Akif Ersoy Üniversitesi (MAKÜ) Yönetim Bilişim Sistemleri bölümü 4. sınıf öğrencisiyim. 
+                            Web ve mobil uygulama geliştirmeye büyük bir ilgi duyan, yaratıcı ve detay odaklı bir yazılımcıyım.
+                        </p>
+                    </div>
+                    
+                    <div class="about-block">
+                        <h3>🎯 Ne Yapıyorum</h3>
+                        <p>
+                            Web ve mobil uygulama geliştirme, veritabanı tasarımı ve entegrasyon konularında çalışıyorum. 
+                            Django ve Flask ile backend geliştiriyor, Flutter ile native mobil uygulamalar tasarlıyorum.
+                        </p>
+                    </div>
+                    
+                    <div class="about-block">
+                        <h3>💡 Felsefem</h3>
+                        <p>
+                            Estetik ve işlevselliği harmanlayan, kullanıcı odaklı çözümler geliştirmek benim amacım. 
+                            Kod kalitesi ve performans kadar, verimli ve güvenli yazılım geliştirmeye inandığım için sürekli öğrenmeye devam ediyorum.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Tamamlanan Proje</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12+</div>
+                        <div class="stat-label">Programlama Teknolojisi</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">MAKÜ</div>
+                        <div class="stat-label">YBS 4. Sınıf</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-cta">
+                <p>En son nelerle çalışıyorum öğren:</p>
+                <a href="#skills" class="btn btn-link">
+                    <span>Teknolojileri Keşfet</span>
+                    <i class="fas fa-arrow-down"></i>
+                </a>
+            </div>
         </div>
     </section>
-    <div id="imageModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="modalImage">
-    </div>
-    <br> 
-   <form action="https://formsubmit.co/tzcn4868@gmail.com" method="POST">
-        <input type="text" name="name" placeholder="Adınız" required>
-        <input type="email" name="email" placeholder="E-posta adresiniz" required>
-        <textarea name="message" placeholder="Mesajınız" rows="5" required></textarea>
 
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://static-snt.onrender.com/#iletisim">
+    <!-- ============ SKILLS SECTION ============ -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Yetkinlikler</span>
+                <h2 class="section-title">Teknolojiler & Araçlar</h2>
+                <p class="section-description">Modern web geliştirme için gerekli tüm araçlarla çalışıyorum</p>
+            </div>
+            
+            <div class="skills-grid">
+                <!-- Frontend -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-palette"></i>
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Responsive Design</span>
+                        <span class="tech-tag">UI/UX</span>
+                    </div>
+                </div>
+                
+                <!-- Backend -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Backend</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Django</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">SQLite3</span>
+                        <span class="tech-tag">RESTful API</span>
+                    </div>
+                </div>
+                
+                <!-- Backend -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile Development</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">Kotlin</span>
+                        <span class="tech-tag">Android Studio</span>
+                        <span class="tech-tag">Firebase Integration</span>
+                        <span class="tech-tag">UI/UX Design</span>
+                    </div>
+                </div>
+                
+                <!-- Database & Tools -->
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Araçlar & Kütüphaneler</h3>
+                    </div>
+                    <div class="tech-tags">
+                        <span class="tech-tag">NumPy</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Bootstrap</span>
+                        <span class="tech-tag">Git & GitHub</span>
+                        <span class="tech-tag">VS Code</span>
+                        <span class="tech-tag">Android Studio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <button type="submit">Gönder</button>
-        <input type="hidden" name="_subject" value="Yeni İletişim Mesajı">
-        <input type="hidden" name="_autoresponse"
-            value="Mesajınız başarıyla iletildi. En kısa sürede dönüş yapacağım. Teşekkürler!">
-    </form>
-    <br><br>
-    <footer>
-        <p>© 2025 Sıla | Tüm hakları saklıdır.</p>
-        <p>
-            Diğer projelerime göz atmak için
-            <a href="https://github.com/Silanur-Tezcan" target="_blank"
-                style="color: #4f46e5; font-weight: 500; text-decoration: underline;">
-                GitHub profilimi ziyaret edebilirsiniz
-            </a>.
-        </p>
+    <!-- ============ PROJECTS SECTION ============ -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Portföy</span>
+                <h2 class="section-title">Projelerim</h2>
+                <p class="section-description">Geliştirdiğim anlı uygulamalar ve sistem tasarımları</p>
+            </div>
+            
+            <!-- Filter -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">Tüm Projeler</button>
+                <button class="filter-btn" data-filter="web">Web Uygulaması</button>
+                <button class="filter-btn" data-filter="fullstack">Full Stack</button>
+                <button class="filter-btn" data-filter="other">Diğer</button>
+            </div>
+            
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card" data-category="fullstack">
+                    <div class="project-header">
+                        <h3>B12 Akademi</h3>
+                        <span class="project-type">Full Stack</span>
+                    </div>
+                    <p class="project-description">
+                        Admin paneli ve öğrenci paneli ile dinamik eğitim platformu. 
+                        Kullanıcı yönetimi, kurs ve içerik yönetimi, Firebase ile ortak veritabanı entegrasyonu.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech">Django</span>
+                        <span class="tech">Flutter</span>
+                        <span class="tech">Firebase</span>
+                        <span class="tech">SQLite3</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="b12.html" class="project-link" title="Projeyi Görüntüle">
+                            <i class="fas fa-external-link-alt"></i> Projeyi Gör
+                        </a>
+                       
+                    </div>
+                </article>
+                
+                <!-- Project 2 -->
+                <article class="project-card" data-category="fullstack">
+                    <div class="project-header">
+                        <h3>MopUp Mobil Uygulama</h3>
+                        <span class="project-type">Full Stack</span>
+                    </div>
+                    <p class="project-description">
+                        Temizlik hizmet platformu. Hizmet alan ve hizmet veren sistemi, 
+                        yorum ve puanlama sistemi, gerçek zamanlı bildirimler.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech">Flutter</span>
+                        <span class="tech">Firebase</span>
+                        <span class="tech">Cloud Messaging</span>
+                        <span class="tech">Dart</span>
+                    </div>
+                    <div class="project-links">
+                      
+                    </div>
+                </article>
+                
+                <!-- Project 3 -->
+                <article class="project-card" data-category="web">
+                    <div class="project-header">
+                        <h3>QR Menü Web Sitesi</h3>
+                        <span class="project-type">Web App</span>
+                    </div>
+                    <p class="project-description">
+                        Restoranlar için QR kod ile menü görüntüleme sistemi. 
+                        Dinamik menü yönetimi, kategori düzenleme ve gerçek zamanlı güncelleme.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech">Django</span>
+                        <span class="tech">SQLite3</span>
+                        <span class="tech">QR Code</span>
+                        <span class="tech">HTML/CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="qr_menu.html" class="project-link" title="Projeyi Görüntüle">
+                            <i class="fas fa-external-link-alt"></i> Projeyi Gör
+                        </a>
+                      
+                    </div>
+                </article>
+                
+                <!-- Project 4 -->
+                <article class="project-card" data-category="web">
+                    <div class="project-header">
+                        <h3>BlogHub</h3>
+                        <span class="project-type">Web App</span>
+                    </div>
+                    <p class="project-description">
+                        Kullanıcıların içerik paylaşabildiği blog platformu. 
+                        Beğeni ve yorum sistemi, kategori düzenleme, sosyal paylaşım özellikleri.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech">Django</span>
+                        <span class="tech">SQLite3</span>
+                        <span class="tech">Bootstrap</span>
+                        <span class="tech">AJAX</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="blog.html" class="project-link" title="Projeyi Görüntüle">
+                            <i class="fas fa-external-link-alt"></i> Projeyi Gör
+                        </a>
+                  
+                    </div>
+                </article>
+                
+                <!-- Project 5 -->
+                <article class="project-card" data-category="fullstack">
+                    <div class="project-header">
+                        <h3>Rezervasyon Platformu</h3>
+                        <span class="project-type">Full Stack</span>
+                    </div>
+                    <p class="project-description">
+                        Django ile geliştirilmiş rezervasyon sistemi. Kullanıcı kayıt, 
+                        rezervasyon yönetimi, admin panelinde tarih sırasına göre listeleme.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech">Django</span>
+                        <span class="tech">SQLite3</span>
+                        <span class="tech">Bootstrap</span>
+                        <span class="tech">Email Integration</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="rezerve.html" class="project-link" title="Projeyi Görüntüle">
+                            <i class="fas fa-external-link-alt"></i> Projeyi Gör
+                        </a>
+                       
+                    </div>
+                </article>
+                
+                <!-- Project 6 -->
+                <article class="project-card" data-category="web">
+                    <div class="project-header">
+                        <h3>Profesyonel Portföy Sitesi</h3>
+                        <span class="project-type">Web App</span>
+                    </div>
+                    <p class="project-description">
+                        Modern, profesyonel tasarımda portföy sitesi. Glassmorphism efektleri, proje filtreleme, 
+                        smooth animasyonlar ve tam responsive tasarım.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech">HTML5</span>
+                        <span class="tech">CSS3</span>
+                        <span class="tech">JavaScript</span>
+                        <span class="tech">SEO Optimized</span>
+                    </div>
+                    <div class="project-links">
+                    
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CERTIFICATES SECTION ============ -->
+    <section id="certificates" class="section certificates">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Sertifikalar</span>
+                <h2 class="section-title">Sertifikalar & Başarılar</h2>
+                <p class="section-description">Aldığım sertifikalı kurslar ve eğitimler</p>
+            </div>
+            
+            <!-- Swiper -->
+            <div class="swiper certificates-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Certificate 1 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="html_btk.png" alt="Sertifikat" class="cert-image">
+                            <h3>HTML5 ile Web Geliştirme</h3>
+                            <p>BTK - Tamamlandı</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 2 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="html_t.png" alt="Sertifikat" class="cert-image">
+                            <h3>101:HTML Web Geliştirme</h3>
+                            <p>Turkcell - Tamamlandı</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 3 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="js_btk.png" alt="Sertifikat" class="cert-image">
+                            <h3>JavaScript Temelleri</h3>
+                            <p>BTK - Tamamlandı</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 4 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="py_t.png" alt="Sertifikat" class="cert-image">
+                            <h3>Python Programlama 101</h3>
+                            <p>Turkcell - Tamamlandı</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 5 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="css_btk.png" alt="Sertifikat" class="cert-image">
+                            <h3>CSS Temelleri</h3>
+                            <p>BTK - Tamamlandı</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 6 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="css_t.png" alt="Sertifikat" class="cert-image">
+                            <h3>201: HTML5 ve CSS</h3>
+                            <p>Turkcell - Tamamlandı</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Certificate 7 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="bootstrap_btk.png" alt="Sertifikat" class="cert-image">
+                            <h3>Bootstrap5</h3>
+                            <p>BTK - Tamamlandı</p>
+                        </div>
+                    </div>
+                       <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="dart.png" alt="Sertifikat" class="cert-image">
+                            <h3>Dart Programlama Dili</h3>
+                            <p>BTK - Tamamlandı</p>
+                        </div>
+                    </div>
+                    <!-- Certificate 8 -->
+                    <div class="swiper-slide">
+                        <div class="certificate-card">
+                            <img src="kotlin.png" alt="Sertifikat" class="cert-image">
+                            <h3>Kotlin Programlama Dili</h3>
+                            <p>BTK  - Tamamlandı</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ CONTACT SECTION ============ -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">İletişim</span>
+                <h2 class="section-title">Bana Ulaş</h2>
+                <p class="section-description">Sorularınız için çekinme, hemen cevap veririm!</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-Mail</h4>
+                            <a href="mailto:tzcn4868@gmail.com">tzcn4868@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <a href="tel:+905415751146">+90 541 575 1146</a>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Konum</h4>
+                            <p>Isparta, Türkiye</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/tzcn4868@gmail.com" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="ad" class="form-control" placeholder="Adınız" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" class="form-control" placeholder="Email Adresiniz" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="konu" class="form-control" placeholder="Konu" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mesaj" class="form-control" rows="5" placeholder="Mesajınız" required></textarea>
+                    </div>
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next" value="https://silanur-tezcan.vercel.app/">
+                    <button type="submit" class="btn btn-primary">
+                        <span>Gönder</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Social Links -->
+            <div class="social-links">
+                <p>Sosyal ağlarda takip edin:</p>
+                <div class="social-icons">
+                    <a href="https://github.com/Silanur-Tezcan" target="_blank" rel="noopener noreferrer" class="social-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/s%C4%B1la-nur-tezcan-86b804326/" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="social-icon" title="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Sıla Nur Tezcan</h4>
+                    <p>Web & Mobile Developer<br>Mehmet Akif Ersoy Üniversitesi<br>© 2025 Tüm Hakları Saklıdır.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hızlı Linkler</h4>
+                    <ul>
+                        <li><a href="#home" class="footer-link">Anasayfa</a></li>
+                        <li><a href="#about" class="footer-link">Hakkımda</a></li>
+                        <li><a href="#projects" class="footer-link">Projeler</a></li>
+                        <li><a href="#contact" class="footer-link">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Sosyal Ağlar</h4>
+                    <ul>
+                        <li><a href="https://github.com/Silanur-Tezcan" target="_blank" class="footer-link">GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/s%C4%B1la-nur-tezcan-86b804326/" target="_blank" class="footer-link">LinkedIn</a></li>
+                        <li><a href="https://twitter.com" target="_blank" class="footer-link">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Tasarım & Geliştirme: Sıla Nur Tezcan</p>
+            </div>
+        </div>
     </footer>
-    <script src="script.js" defer></script>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-   
+    <script src="script.js"></script>
 </body>
 
 </html>
